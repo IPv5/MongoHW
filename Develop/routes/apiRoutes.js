@@ -10,8 +10,6 @@ module.exports = function(app) {
                 res.json(err)
             })
     });
-
-
     app.post("/api/workouts", function(req, res) {
         Workout.create({})
             .then(data => res.json(data))
@@ -19,7 +17,6 @@ module.exports = function(app) {
                 res.json(err)
             })
     });
-
     app.get("/api/workouts/range", function(req, res) {
         Workout.find()
             .then(data => {
@@ -29,8 +26,6 @@ module.exports = function(app) {
                 res.json(err)
             })
     });
-
-
     app.post("/api/workouts/range", function(req, res) {
         Workout.create({})
             .then(data => res.json(data))
@@ -38,7 +33,6 @@ module.exports = function(app) {
                 res.json(err)
             })
     });
-
     app.put("/api/workouts/:id", ({ body, params }, res) => {
         Workout.findByIdAndUpdate(
                 params.id, { $push: { exercises: body } }, { new: true, runValidators: true }
